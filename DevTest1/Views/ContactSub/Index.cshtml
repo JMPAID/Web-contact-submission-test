@@ -1,0 +1,70 @@
+﻿@model DevTest1.Context.user
+
+@{
+    ViewBag.Title = "Contact";
+}
+
+<style>
+    .error{
+        color: red;
+    }
+</style>
+
+@using (Html.BeginForm("AddContact", "ContactSub", FormMethod.Post))
+{
+<div style="margin-top: 20px" class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>First name</label>
+                @Html.ValidationMessageFor(form => form.first_name, "", new { @class="error" })
+                @Html.TextBoxFor(form => form.first_name, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Last name</label>
+                @Html.ValidationMessageFor(form => form.last_name, "", new { @class = "error" })
+                @Html.TextBoxFor(form => form.last_name, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Address</label>
+                @Html.ValidationMessageFor(form => form.address, "", new { @class = "error" })
+                @Html.TextBoxFor(form => form.address, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>State</label>
+                @Html.ValidationMessageFor(form => form.state, "", new { @class = "error" })
+                @Html.TextBoxFor(form => form.state, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Country</label>
+                @Html.ValidationMessageFor(form => form.country, "", new { @class = "error" })
+                @Html.TextBoxFor(form => form.country, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Zip code</label>
+                @Html.ValidationMessageFor(form => form.zip_code, "", new { @class = "error" })
+                @Html.TextBoxFor(form => form.zip_code, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Phone number</label>
+                @Html.ValidationMessageFor(form => form.phone_number, "", new { @class = "error" })
+                @Html.TextBoxFor(form => form.phone_number, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Note</label>
+                @Html.ValidationMessageFor(form => form.note, "", new { @class = "error" })
+                @Html.TextAreaFor(form => form.note, new { @class = "form-control", @rows = "7" })
+            </div>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <button type="submit" class="btn" btn-primary> Submit </button>
+    </div>
+
+</div>
+}
+

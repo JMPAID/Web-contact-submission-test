@@ -1,0 +1,58 @@
+﻿
+@model List<DevTest1.Context.user>
+
+
+@{
+    ViewBag.Title = "Admin";
+}
+<div style="margin-top: 20px" class="container">
+    <table id="userTable" class="table table-hover">
+        <thead>
+            <tr>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Address</th>
+                <th>State</th>
+                <th>Country</th>
+                <th>Zip code</th>
+                <th>Phone number</th>
+                <th>Note</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        @foreach (var item in Model)
+        {
+            <tbody>
+                <tr>
+                    <td>@item.first_name</td>
+                    <td>@item.last_name</td>
+                    <td>@item.address</td>
+                    <td>@item.state</td>
+                    <td>@item.country</td>
+                    <td>@item.zip_code</td>
+                    <td>@item.phone_number</td>
+                    <td>@item.note</td>
+                    <td>
+                        <a href="#"><i class="glyphicon glyphicon-pencil"></i></a>
+                        <a href="#"><i class="glyphicon glyphicon-trash"></i></a>
+                    </td>
+                </tr>
+            </tbody>
+        }
+    </table>
+</div>
+
+<link href="//cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" rel="stylesheet" />
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="//cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#userTable').DataTable();
+        });
+    </script>
+}
+
